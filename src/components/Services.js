@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
-import ServiceCard from '../ServiceCard';
+import { Container, Row, Col } from 'reactstrap';
 import { StaticQuery, graphql } from 'gatsby';
+import ServiceCard from './ServiceCard';
 
 const Services = ({ data }) => {
   return (
@@ -31,7 +31,7 @@ const Services = ({ data }) => {
       `}
       render={data => {
         return (
-          <React.Fragment>
+          <Container className="my-5">
             {/** Heading and text */}
             <Row>
               <Col xs="12">
@@ -65,7 +65,7 @@ const Services = ({ data }) => {
                 );
               })}
             </Row>
-          </React.Fragment>
+          </Container>
         );
       }}
     />

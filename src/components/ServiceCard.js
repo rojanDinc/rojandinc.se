@@ -26,7 +26,6 @@ const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc }) => {
       backgroundColor: 'red',
       borderRadius: 10,
       padding: 30,
-      boxShadow: '0px 1px 10px 0px rgba(122,122,122,1)',
       background: `url('${imgSrc}')`,
       backgroundSize: 'cover',
     },
@@ -34,7 +33,7 @@ const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc }) => {
   return (
     <div
       style={styles.container}
-      className="d-flex flex-column justify-content-center align-items-center w-100 mb-3 service-container"
+      className="d-flex flex-column justify-content-center align-items-center w-100 mb-3 element-shadow"
     >
       <div className="w-100">
         <span className="text-light">{typeChecker(serviceType)}</span>
