@@ -11,13 +11,19 @@ const Services = ({ data }) => {
           allWordpressWpServices {
             edges {
               node {
-                wordpress_id
+                id
+                title
+                featured_media {
+                  source_url
+                  alt_text
+                }
                 acf {
                   excerpt
-                  type_of_service
+                  en_content
+                  en_title
+                  en_excerpt
+                  service_type
                 }
-                title
-                content
               }
             }
           }
@@ -45,13 +51,15 @@ const Services = ({ data }) => {
             </Row>
             {/** Services grid */}
             <Row>
-              {data.allWordpressWpServices.edges.map(item => {
+              {data.allWordpressWpServices.edges.map(edge => {
                 return (
-                  <Col xs="12" sm="6" key={item.node.wordpress_id}>
+                  <Col xs="12" sm="6" key={edge.node.id}>
                     <ServiceCard
-                      serviceType={item.node.acf.type_of_service}
-                      title={item.node.title}
-                      excerpt={item.node.excerpt}
+                      serviceType={edge.node.acf.service_type}
+                      title={edge.node.title}
+                      excerpt={edge.node.acf.excerpt}
+                      imgAlt={edge.node.featured_media.alt_text}
+                      imgSrc={edge.node.featured_media.source_url}
                     />
                   </Col>
                 );

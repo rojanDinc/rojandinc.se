@@ -16,21 +16,4 @@ const IndexPage = ({ data }) => (
   </Layout>
 );
 
-export const pageQuery = graphql`
-  {
-    allWordpressWpServices {
-      edges {
-        node {
-          acf {
-            excerpt
-            type_of_service
-          }
-          title
-          content
-        }
-      }
-    }
-  }
-`;
-
 export default IndexPage;

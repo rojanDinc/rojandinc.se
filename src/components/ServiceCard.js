@@ -19,29 +19,30 @@ const typeChecker = type => {
   }
 };
 
-const ServiceCard = ({ serviceType, title, excerpt }) => {
+const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc }) => {
+  const styles = {
+    container: {
+      minHeight: 320,
+      backgroundColor: 'red',
+      borderRadius: 10,
+      padding: 30,
+      boxShadow: '0px 1px 10px 0px rgba(122,122,122,1)',
+      background: `url('${imgSrc}')`,
+      backgroundSize: 'cover',
+    },
+  };
   return (
     <div
       style={styles.container}
-      className="d-flex flex-column justify-content-center align-items-center w-100 mb-3"
+      className="d-flex flex-column justify-content-center align-items-center w-100 mb-3 service-container"
     >
       <div className="w-100">
-        <span>{typeChecker(serviceType)}</span>
-        <p>{title}</p>
-        <p>{excerpt}</p>
+        <span className="text-light">{typeChecker(serviceType)}</span>
+        <p className="text-light h4">{title}</p>
+        <p className="text-light">{excerpt}</p>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: 320,
-    backgroundColor: 'red',
-    borderRadius: 10,
-    padding: 30,
-    boxShadow: '0px 1px 10px 0px rgba(122,122,122,1)',
-  },
 };
 
 export default ServiceCard;
