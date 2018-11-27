@@ -19,7 +19,7 @@ const typeChecker = type => {
   }
 };
 
-const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc }) => {
+const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc, id }) => {
   const styles = {
     container: {
       minHeight: 320,
