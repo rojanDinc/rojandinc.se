@@ -36,9 +36,11 @@ const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc, id }) => {
       className="d-flex flex-column justify-content-center align-items-center w-100 mb-3 element-shadow"
     >
       <div className="w-100">
-        <span className="text-light">{typeChecker(serviceType)}</span>
-        <p className="text-light h4">{title}</p>
-        <p className="text-light">{excerpt}</p>
+        <span className="text-light">
+          {serviceType && typeChecker(serviceType)}
+        </span>
+        <p className="text-light h4">{title && title}</p>
+        <p className="text-light">{excerpt && excerpt}</p>
       </div>
     </div>
   );

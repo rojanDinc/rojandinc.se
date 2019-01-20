@@ -16,7 +16,7 @@ const HeadSection = () => {
           <Button className="theme-btn-outlined">Kontakt</Button>
         </div>
       </Col>
-      <Col sm="5">
+      <Col sm="5" className="d-flex justify-content-end align-items-start">
         <img src={me} alt="Logo" />
       </Col>
     </Row>

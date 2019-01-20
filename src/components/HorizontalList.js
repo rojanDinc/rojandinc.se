@@ -22,19 +22,20 @@ const HorizontalList = ({ items }) => {
         >
           <img />
         </div>
-        {items.map(item => (
-          <div
-            key={item.node.id}
-            style={styles.card}
-            className="tech-item element-shadow"
-          >
-            <img
-              src={item.node.featured_media.source_url}
-              alt={item.node.featured_media.alt_text}
-              style={styles.cardImage}
-            />
-          </div>
-        ))}
+        {items &&
+          items.map(item => (
+            <div
+              key={item.node.id}
+              style={styles.card}
+              className="tech-item element-shadow"
+            >
+              <img
+                src={item.node.featured_media.source_url}
+                alt={item.node.featured_media.alt_text}
+                style={styles.cardImage}
+              />
+            </div>
+          ))}
       </div>
     </div>
   );
