@@ -5,14 +5,14 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify-cms',
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static/services`,
+        path: `${__dirname}/services`,
         name: 'markdown-pages',
       },
     },
-    'gatsby-transformer-remark',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
