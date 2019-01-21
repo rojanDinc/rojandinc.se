@@ -9,24 +9,24 @@ collections:
   - name: projects
     label: Projects
     folder: projects
-    create: true
+    create: false
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
+      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: image, label: Image, widget: image }
       - { name: body, label: Body, widget: text }
   - name: technologies
     label: Technologies
     folder: posts/technologies
-    create: true
+    create: false
     fields:
       - { name: title, label: Title }
       - { name: image, label: Image }
   - name: experiences
     label: Experiences
     folder: posts/experiences
-    create: true
+    create: false
     fields:
       - { name: path, label: Path }
       - { name: title, label: Title }
@@ -36,7 +36,7 @@ collections:
   - name: services
     label: Services
     folder: posts/services
-    create: true
+    create: false
     fields:
       - { name: title, label: Title }
       - { name: image, label: Image }
