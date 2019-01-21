@@ -18,14 +18,14 @@ collections:
       - { name: body, label: Body, widget: text }
   - name: technologies
     label: Technologies
-    folder: technologies
+    folder: posts/technologies
     create: true
     fields:
       - { name: title, label: Title }
       - { name: image, label: Image }
   - name: experiences
     label: Experiences
-    folder: experiences
+    folder: posts/experiences
     create: true
     fields:
       - { name: path, label: Path }
