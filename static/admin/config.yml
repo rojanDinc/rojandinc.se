@@ -8,7 +8,7 @@ public_folder: assets
 collections:
   - name: projects
     label: Projects
-    folder: projects
+    folder: posts/projects
     create: true
     identifier_field: projects
     fields:
