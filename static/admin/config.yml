@@ -9,35 +9,68 @@ collections:
   - name: projects
     label: Projects
     folder: projects
-    create: false
+    create: true
+    identifier_field: projects
     fields:
+      - {
+          label: 'Page type',
+          name: 'pagetype',
+          widget: 'hidden',
+          default: 'project-post',
+        }
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: image, label: Image, widget: image }
+      - { name: alt, label: Alt attribute }
       - { name: body, label: Body, widget: text }
   - name: technologies
     label: Technologies
     folder: posts/technologies
-    create: false
+    create: true
+    identifier_field: technologies
     fields:
+      - {
+          label: 'Page type',
+          name: 'pagetype',
+          widget: 'hidden',
+          default: 'technology-post',
+        }
       - { name: title, label: Title }
-      - { name: image, label: Image }
+      - { name: image, label: Image, widget: image }
+      - { name: alt, label: Alt attribute }
   - name: experiences
     label: Experiences
     folder: posts/experiences
-    create: false
+    create: true
+    identifier_field: experiences
     fields:
+      - {
+          label: 'Page type',
+          name: 'pagetype',
+          widget: 'hidden',
+          default: 'experience-post',
+        }
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: from, label: From, widget: date }
       - { name: to, label: To, widget: date }
       - { name: body, label: Body, widget: markdown }
+      - { name: image, label: Image, widget: image }
+      - { name: alt, label: Alt attribute }
   - name: services
     label: Services
     folder: posts/services
-    create: false
+    create: true
+    identifier_field: services
     fields:
+      - {
+          label: 'Page type',
+          name: 'pagetype',
+          widget: 'hidden',
+          default: 'service-post',
+        }
       - { name: title, label: Title }
-      - { name: image, label: Image }
+      - { name: image, label: Image, widget: image }
+      - { name: alt, label: Alt attribute }
       - { name: date, label: Date }

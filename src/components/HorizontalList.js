@@ -30,8 +30,8 @@ const HorizontalList = ({ items }) => {
               className="tech-item element-shadow"
             >
               <img
-                src={item.node.featured_media.source_url}
-                alt={item.node.featured_media.alt_text}
+                src={item.node.frontmatter.image}
+                alt={item.node.frontmatter.alt}
                 style={styles.cardImage}
               />
             </div>
