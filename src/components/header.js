@@ -4,11 +4,16 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
 } from 'reactstrap';
+import styled from 'styled-components';
+
+const StyledLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`;
 
 class Header extends React.Component {
   constructor(props) {
@@ -38,15 +43,7 @@ class Header extends React.Component {
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <Link
-                  to="/"
-                  style={{
-                    color: 'white',
-                    textDecoration: 'none',
-                  }}
-                >
-                  {siteTitle}
-                </Link>
+                <StyledLink to="/">{siteTitle}</StyledLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">
@@ -55,7 +52,6 @@ class Header extends React.Component {
               </NavItem>
             </Nav>
           </Collapse>
-          {/*<NavbarBrand href="/">reactstrap</NavbarBrand>*/}
         </Navbar>
       </div>
     );
@@ -63,14 +59,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-/*
-<Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-*/

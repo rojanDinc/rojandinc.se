@@ -48,11 +48,7 @@ const Technologies = ({ data }) => {
             </Container>
             <Container fluid className="no-padding">
               {/** Technologies grid */}
-              <Row>
-                <Col xs="12">
-                  <HorizontalList items={data.allMarkdownRemark.edges} />
-                </Col>
-              </Row>
+              <HorizontalList items={data.allMarkdownRemark.edges} />
             </Container>
           </React.Fragment>
         );

@@ -2,6 +2,19 @@ import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import Masonry from 'react-masonry-css';
+import HorizontalLine from './HorizontalLine';
+import styled from 'styled-components';
+import theme from '../theme';
+
+const StyledImage = styled.img`
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+`;
 
 const Projects = () => (
   <StaticQuery
@@ -39,11 +52,11 @@ const Projects = () => (
             <Col xs="12">
               <div className="d-inline-block">
                 <h2 className="h1">Projekt</h2>
-                <hr className="hr-heading-line" />
+                <HorizontalLine />
               </div>
             </Col>
             <Col xs="6">
-              <p className="theme-lighter-color">
+              <p style={{ color: theme.lighterColor }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
                 eget condimentum ipsum. Nullam dapibus odio urna, eget bibendum
                 velit euismod eu.
@@ -59,7 +72,6 @@ const Projects = () => (
                 columnClassName="my-masonry-grid_column"
               >
                 {edges.map((item, index) => {
-                  console.log(item);
                   let height;
                   if (index % 2 === 0) height = 300;
                   else if (index % 3 === 0) height = 220;
@@ -67,12 +79,12 @@ const Projects = () => (
                   return (
                     <Link
                       key={item.node.id}
-                      className="masonry-item"
-                      to={item.node.frontmatter.path}
+                      to={'/projects/' + item.node.frontmatter.path}
                     >
-                      <img
+                      <StyledImage
                         className="w-100"
                         src={`https://via.placeholder.com/200x${height}`}
+                        alt="project"
                       />
                     </Link>
                   );

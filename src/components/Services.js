@@ -2,16 +2,16 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import ServiceCard from './ServiceCard';
 import { StaticQuery, graphql } from 'gatsby';
+import HorizontalLine from './HorizontalLine';
 
 const Services = ({ data }) => {
-  console.log(data);
   return (
     <StaticQuery
       query={graphql`
         {
           allMarkdownRemark(
             sort: { order: DESC, fields: [frontmatter___date] }
-            filter: { frontmatter: { pagetype: { eq: "project-post" } } }
+            filter: { frontmatter: { pagetype: { eq: "service-post" } } }
           ) {
             edges {
               node {
@@ -27,7 +27,6 @@ const Services = ({ data }) => {
         }
       `}
       render={data => {
-        console.log(data);
         return (
           <Container className="my-5">
             {/** Heading and text */}
@@ -35,7 +34,7 @@ const Services = ({ data }) => {
               <Col xs="12">
                 <div className="d-inline-block">
                   <h2 className="h1">Tjänster</h2>
-                  <hr className="hr-heading-line" />
+                  <HorizontalLine />
                 </div>
               </Col>
               <Col xs="6">

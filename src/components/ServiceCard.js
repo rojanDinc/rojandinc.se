@@ -5,6 +5,21 @@ import {
   faMobileAlt,
   faCogs,
 } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+`;
 
 const typeChecker = type => {
   switch (type) {
@@ -31,10 +46,7 @@ const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc, id }) => {
     },
   };
   return (
-    <div
-      style={styles.container}
-      className="d-flex flex-column justify-content-center align-items-center w-100 mb-3 element-shadow"
-    >
+    <StyledCard style={styles.container} className="mb-3 element-shadow">
       <div className="w-100">
         <span className="text-light">
           {serviceType && typeChecker(serviceType)}
@@ -42,7 +54,7 @@ const ServiceCard = ({ serviceType, title, excerpt, imgAlt, imgSrc, id }) => {
         <p className="text-light h4">{title && title}</p>
         <p className="text-light">{excerpt && excerpt}</p>
       </div>
-    </div>
+    </StyledCard>
   );
 };
 

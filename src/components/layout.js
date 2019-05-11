@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Header from './header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout.css';
