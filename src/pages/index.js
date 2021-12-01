@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { Navbar, Card, ExperienceCard, ProjectCard, Tag, Title } from "../components";
+import { Navbar, Card, ExperienceCard, ProjectCard, Tag, Title, Footer } from "../components";
 import LendoLogo from "../images/lendo.png";
 import ValtechLogo from "../images/valtech.png";
 import SnaptiveLogo from "../images/snaptive.png";
@@ -169,6 +169,8 @@ export default function IndexPage() {
             </Masonry>
           </Col>
         </Row>
+        
+        <Footer />
       </Container>
     </div>
   );
