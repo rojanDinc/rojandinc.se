@@ -48,7 +48,6 @@ export default function IndexPage() {
               <h1 className="font-bold text-3xl">
                 Hi I'm Rojan Dinc, a software engineer
               </h1>
-              <div className="my-3" />
               <p>
                 This is my personal website where you can find information about
                 my prior professional experience.
@@ -59,7 +58,7 @@ export default function IndexPage() {
               </p>
             </Card>
           </Col>
-          <Col>
+          <Col className="d-none d-sm-none d-md-block">
             <StaticImage
               className="rounded-xl"
               src="../images/me-min.png"
@@ -86,7 +85,7 @@ export default function IndexPage() {
               Lorem ipsum dolor sit.
             </ExperienceCard>
           </Col>
-          <Col xs={12} sm={6}>
+          <Col xs={12} sm={6} className="mb-5">
             <Title size="4xl">Tech skills</Title>
             <Card className="p-4">
               <Tag text="C#" />
