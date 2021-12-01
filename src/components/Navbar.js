@@ -6,6 +6,7 @@ import { getClassNameProp } from "../util";
 
 const NavbarTitle = styled(Link)`
   text-decoration: none;
+  color: white;
 `;
 
 const navLinks = [
@@ -13,14 +14,14 @@ const navLinks = [
   { href: "/blog", title: "Blog" },
 ];
 const MenuButton = styled.button`
-  background: #fff;
+  background: transparent;
   border: none;
 `;
 const MenuIcon = ({ onClick }) => (
   <MenuButton onClick={onClick}>
-    <div className="bar1"></div>
-    <div className="bar2"></div>
-    <div className="bar3"></div>
+    <div className="bar"></div>
+    <div className="bar"></div>
+    <div className="bar"></div>
   </MenuButton>
 );
 
@@ -33,6 +34,12 @@ const NavbarLink = (props) => (
     {props.children}
   </Link>
 );
+
+const NavbarContainer = styled(Container)`
+  background-color: var(--primary);
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+`
 
 const Navbar = () => {
   const collapsibleRef = React.useRef(null);
@@ -78,7 +85,7 @@ const Navbar = () => {
   };
 
   return (
-    <Container className="pt-4 sticky">
+    <NavbarContainer className="pt-4 mb-5 sticky">
       <Row>
         <Col className="d-flex align-items-center">
           <MenuIcon onClick={onMenuClick} />
@@ -106,7 +113,7 @@ const Navbar = () => {
           </div>
         </Col>
       </Row>
-    </Container>
+    </NavbarContainer>
   );
 };
 

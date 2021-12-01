@@ -60,14 +60,13 @@ export default function IndexPage() {
             </Card>
           </Col>
           <Col>
-            <Card className="hidden d-sm-flex">
-              <StaticImage
-                className="rounded-xl"
-                src="../images/me-min.png"
-                placeholder="blurred"
-                alt="picture of Rojan Dinc"
-              />
-            </Card>
+            <StaticImage
+              className="rounded-xl"
+              src="../images/me-min.png"
+              placeholder="blurred"
+              alt="picture of Rojan Dinc"
+              style={{ borderRadius: "0.75rem" }}
+            />
           </Col>
         </Row>
       </Container>
@@ -88,7 +87,9 @@ export default function IndexPage() {
             </ExperienceCard>
           </Col>
           <Col xs={12} sm={6}>
-            <span className="font-black text-4xl">Tech skills</span>
+            <div className="mb-3">
+              <span className="font-black text-4xl">Tech skills</span>
+            </div>
             <Card className="p-4">
               <Tag text="C#" />
             </Card>
