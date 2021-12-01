@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
-import { Navbar, Card, ExperienceCard, ProjectCard, Tag } from "../components";
+import { Navbar, Card, ExperienceCard, ProjectCard, Tag, Title } from "../components";
 import LendoLogo from "../images/lendo.png";
 import ValtechLogo from "../images/valtech.png";
 import SnaptiveLogo from "../images/snaptive.png";
@@ -74,7 +74,7 @@ export default function IndexPage() {
       <Container>
         <Row>
           <Col xs={12} sm={6}>
-            <span className="font-black text-4xl">Experience</span>
+            <Title size="4xl">Experience</Title>
             <ExperienceCard
               title="System Developer"
               imageAlt={"colive logo"}
@@ -87,9 +87,7 @@ export default function IndexPage() {
             </ExperienceCard>
           </Col>
           <Col xs={12} sm={6}>
-            <div className="mb-3">
-              <span className="font-black text-4xl">Tech skills</span>
-            </div>
+            <Title size="4xl">Tech skills</Title>
             <Card className="p-4">
               <Tag text="C#" />
             </Card>
@@ -98,7 +96,7 @@ export default function IndexPage() {
       </Container>
 
       <Container>
-        <h1 className="font-black text-4xl">Projects</h1>
+        <Title size="4xl">Projects</Title>
         <Row>
           <Col>
             <Masonry
