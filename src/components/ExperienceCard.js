@@ -42,17 +42,19 @@ const ExperienceCard = ({
   return (
     <Card className={`mb-5 p-4`}>
       <Row>
-        <Col xs={"auto"}>
-          <Img src={image} alt={imageAlt} />
-        </Col>
-        <Col xs={10}>
-          <StyledSpan className="font-bold text-lg">{title}</StyledSpan>
-          <StyledSpan className="text-md">{employer}</StyledSpan>
-          <StyledSpan>
-            {renderDate(startDate)}-
-            {isCurrentEmployment ? "Current" : renderDate(endDate) || "N/A"}{" "}
-            {String.fromCharCode(183)} {renderExperienceDuration()}
-          </StyledSpan>
+        <Col className="d-flex" xs={12}>
+          <div className="me-3">
+            <Img src={image} alt={imageAlt} />
+          </div>
+          <div>
+            <StyledSpan className="font-bold text-lg">{title}</StyledSpan>
+            <StyledSpan className="text-md">{employer}</StyledSpan>
+            <StyledSpan>
+              {renderDate(startDate)}-
+              {isCurrentEmployment ? "Current" : renderDate(endDate) || "N/A"}{" "}
+              {String.fromCharCode(183)} {renderExperienceDuration()}
+            </StyledSpan>
+          </div>
         </Col>
       </Row>
     </Card>
