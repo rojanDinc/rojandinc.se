@@ -17,8 +17,8 @@ const MenuButton = styled.button`
   background: transparent;
   border: none;
 `;
-const MenuIcon = ({ onClick }) => (
-  <MenuButton onClick={onClick}>
+const MenuIcon = ({ className, onClick }) => (
+  <MenuButton className={className} onClick={onClick}>
     <div className="bar"></div>
     <div className="bar"></div>
     <div className="bar"></div>
@@ -36,10 +36,14 @@ const NavbarLink = (props) => (
 );
 
 const NavbarContainer = styled(Container)`
+  background-color: transparent;
+`;
+
+const Background = styled(Col)`
   background-color: var(--primary);
   border-bottom-left-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
-`
+`;
 
 const Navbar = () => {
   const collapsibleRef = React.useRef(null);
@@ -85,34 +89,36 @@ const Navbar = () => {
   };
 
   return (
-    <NavbarContainer className="pt-4 mb-5 sticky">
-      <Row>
-        <Col className="d-flex align-items-center">
-          <MenuIcon onClick={onMenuClick} />
-        </Col>
-        <Col className="d-flex align-items-center justify-content-center">
-          <NavbarTitle to="/" className="self-center font-bold text-3xl">
-            Rojan Dinc
-          </NavbarTitle>
-        </Col>
-        <Col></Col>
-        <Col xs={12}>
-          <div
-            id="navbar-links-container"
-            ref={collapsibleRef}
-            className={`d-flex flex-column gap-y-2 pt-3 collapsible bg-gray-50 p-3 rounded-b-xl`}
-            style={{ ...state.menuStyle }}
-          >
-            {state.isMenuCollapsed
-              ? navLinks.map((nl, i) => (
-                  <NavbarLink key={i} to={nl.href}>
-                    {nl.title}
-                  </NavbarLink>
-                ))
-              : ""}
-          </div>
-        </Col>
-      </Row>
+    <NavbarContainer className="mb-5 sticky">
+      <Background className="pt-4">
+        <Row>
+          <Col className="d-flex align-items-center">
+            <MenuIcon className="ms-3" onClick={onMenuClick} />
+          </Col>
+          <Col className="d-flex align-items-center justify-content-center">
+            <NavbarTitle to="/" className="self-center font-bold text-3xl">
+              Rojan Dinc
+            </NavbarTitle>
+          </Col>
+          <Col></Col>
+          <Col xs={12}>
+            <div
+              id="navbar-links-container"
+              ref={collapsibleRef}
+              className={`d-flex flex-column gap-y-2 pt-3 collapsible bg-gray-50 p-3 rounded-b-xl`}
+              style={{ ...state.menuStyle }}
+            >
+              {state.isMenuCollapsed
+                ? navLinks.map((nl, i) => (
+                    <NavbarLink key={i} to={nl.href}>
+                      {nl.title}
+                    </NavbarLink>
+                  ))
+                : ""}
+            </div>
+          </Col>
+        </Row>
+      </Background>
     </NavbarContainer>
   );
 };
