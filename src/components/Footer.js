@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import Divider from "./Divider";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +9,7 @@ const Footer = () => {
     <footer>
       <Row>
         <Col xs={12}>
-          <hr style={{ color: "var(--dark-primary)" }} />
+          <Divider />
         </Col>
         <Col xs={12}>
           <div className="d-flex justify-content-center my-5">
