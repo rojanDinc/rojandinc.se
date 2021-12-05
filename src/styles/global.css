@@ -1,8 +1,8 @@
 :root {
   --darker-primary: #212529;
-  --dark-primary: #343A40;
+  --dark-primary: #343a40;
   --primary: #31404f;
-  --light-primary: #6C757D;
+  --light-primary: #6c757d;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -138,4 +138,14 @@ a {
   top: 0;
   z-index: 1000;
   background-color: white;
+}
+
+.navbar {
+  background-color: var(--primary) !important;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.navbar-toggler {
+  border: 0px !important;
 }

@@ -1,126 +1,29 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
-import { Col, Container, Row } from "react-bootstrap";
-import { getClassNameProp } from "../util";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
-const NavbarTitle = styled(Link)`
-  text-decoration: none;
-  color: white;
-`;
-
-const navLinks = [
-  { href: "/", title: "Home" },
-  { href: "/blog", title: "Blog" },
-];
-const MenuButton = styled.button`
-  background: transparent;
-  border: none;
-`;
-const MenuIcon = ({ className, onClick }) => (
-  <MenuButton className={className} onClick={onClick}>
-    <div className="bar"></div>
-    <div className="bar"></div>
-    <div className="bar"></div>
-  </MenuButton>
-);
-
-const NavbarLink = (props) => (
-  <Link
-    activeClassName="underline"
-    className={`navbar-link text-xl${getClassNameProp(props)}`}
-    {...props}
+const _Navbar = () => (
+  <Navbar
+    collapseOnSelect
+    className="navbar mb-5 py-3"
+    expand={false}
+    bg="dark"
+    variant="dark"
   >
-    {props.children}
-  </Link>
+    <Container>
+      <Navbar.Brand href="#home">
+        <div className="text-3xl font-bold">Rojan Dinc</div>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to="/blog">
+            Blog
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
 );
 
-const NavbarContainer = styled(Container)`
-  background-color: transparent;
-`;
-
-const Background = styled(Col)`
-  background-color: var(--primary);
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-`;
-
-const Navbar = () => {
-  const collapsibleRef = React.useRef(null);
-  const [state, setState] = React.useState({
-    isMenuCollapsed: false,
-    menuStyle: {
-      opacity: 0,
-      height: 0,
-    },
-  });
-
-  React.useEffect(() => {
-    if (state.isMenuCollapsed) {
-      collapseMenu();
-    } else {
-      setState({
-        ...state,
-        menuStyle: {
-          opacity: 0,
-          height: 0,
-        },
-      });
-    }
-  }, [state.isMenuCollapsed]);
-
-  const onMenuClick = () => {
-    setState({ ...state, isMenuCollapsed: !state.isMenuCollapsed });
-  };
-
-  const collapseMenu = () => {
-    const elements = [...collapsibleRef.current.children];
-    const maxMenuHeight = elements.reduce(
-      (prev, curr) => prev + curr.offsetHeight,
-      0
-    );
-    setState({
-      ...state,
-      menuStyle: {
-        opacity: 1,
-        height: maxMenuHeight + 40,
-      },
-    });
-  };
-
-  return (
-    <NavbarContainer className="mb-5 sticky">
-      <Background className="pt-4">
-        <Row>
-          <Col className="d-flex align-items-center">
-            <MenuIcon className="ms-3" onClick={onMenuClick} />
-          </Col>
-          <Col className="d-flex align-items-center justify-content-center">
-            <NavbarTitle to="/" className="self-center font-bold text-3xl">
-              Rojan Dinc
-            </NavbarTitle>
-          </Col>
-          <Col></Col>
-          <Col xs={12}>
-            <div
-              id="navbar-links-container"
-              ref={collapsibleRef}
-              className={`d-flex flex-column gap-y-2 pt-3 collapsible bg-gray-50 p-3 rounded-b-xl`}
-              style={{ ...state.menuStyle }}
-            >
-              {state.isMenuCollapsed
-                ? navLinks.map((nl, i) => (
-                    <NavbarLink key={i} to={nl.href}>
-                      {nl.title}
-                    </NavbarLink>
-                  ))
-                : ""}
-            </div>
-          </Col>
-        </Row>
-      </Background>
-    </NavbarContainer>
-  );
-};
-
-export { Navbar };
+export { _Navbar as Navbar };
