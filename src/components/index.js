@@ -5,3 +5,4 @@ export * from "./ExperienceCard";
 export * from "./Tag";
 export * from "./Title";
 export * from "./Footer";
+export * from "./Layout";
