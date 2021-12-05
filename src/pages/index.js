@@ -13,7 +13,7 @@ import LendoLogo from "../images/lendo.png";
 import ValtechLogo from "../images/valtech.png";
 import SnaptiveLogo from "../images/snaptive.png";
 import ArlandaExpressLogo from "../images/arlanda_express.png";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
 
 const programmingLanguages = [
