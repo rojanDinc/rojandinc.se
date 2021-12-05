@@ -15,6 +15,12 @@ a {
   color: white;
 }
 
+pre {
+  background-color: var(--primary);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
 .bar {
   width: 35px;
   height: 5px;
