@@ -25,3 +25,12 @@ export function prettyDateRange(fromDate, toDate) {
 export function getClassNameProp(props) {
   return props.className ? " " + props.className : "";
 }
+
+export function groupBy(collection, keyGrabber) {
+  return collection.reduce((acc, current) => {
+    const key = keyGrabber(current);
+    if (key in acc) acc[key].push(current);
+    else acc[key] = Array.of(current);
+    return acc;
+  }, {});
+}
