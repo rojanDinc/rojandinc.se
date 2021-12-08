@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Row, Col } from "react-bootstrap";
-import Divider from "./Divider";
+import { Divider } from ".";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
