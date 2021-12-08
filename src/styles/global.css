@@ -15,6 +15,10 @@ a {
   color: white;
 }
 
+a:hover {
+  color: var(--light-primary);
+}
+
 pre {
   background-color: var(--primary);
   border-radius: 0.75rem;
