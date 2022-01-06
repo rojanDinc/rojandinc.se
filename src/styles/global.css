@@ -5,7 +5,7 @@
   --light-primary: #6c757d;
 }
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: monospace;
   background-color: var(--darker-primary);
   color: white;
   margin: 0;
