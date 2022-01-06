@@ -159,3 +159,13 @@ pre {
 .navbar-toggler {
   border: 0px !important;
 }
+
+/* .container overrides */
+@media (min-width: 992px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 960px !important;
+  }
+}
