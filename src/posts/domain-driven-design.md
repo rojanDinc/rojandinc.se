@@ -1,5 +1,5 @@
 ---
-slug: "/blog/system-design"
+slug: "/blog/domain-driven-design"
 date: "2020-12-08"
 title: "My first blog post"
 ---
@@ -16,8 +16,21 @@ Vestibulum et vehicula magna. Integer dignissim ac arcu a facilisis. Class apten
 
 ### Code
 
-```golang
+```go
+type Person struct {
+  Name string `json:"name"`
+  Age int `json:"age"`
+}
+
 func print(arg string) string {
     return fmt.Print(arg)
+}
+```
+
+### Code 2
+
+```go
+func main() {
+  fmt.Println("Hello world!")
 }
 ```

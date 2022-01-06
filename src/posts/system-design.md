@@ -16,7 +16,13 @@ Vestibulum et vehicula magna. Integer dignissim ac arcu a facilisis. Class apten
 
 ### Code
 
-```golang
+```go
+
+type Person struct {
+  Name string `json:"name"`
+  Age string `json:"age"`
+}
+
 func print(arg string) string {
     return fmt.Print(arg)
 }
