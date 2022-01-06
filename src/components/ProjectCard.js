@@ -21,7 +21,7 @@ const ProjectCard = ({
     <Card className="p-4">
       <Row>
         <Col xs={12}>
-          <Img src={profileImage} alt={imageAlt} />
+          <Img className="mb-2" src={profileImage} alt={imageAlt} />
         </Col>
         <Col xs={12}>
           <span className="font-bold text-lg">
