@@ -4,7 +4,7 @@ import { Footer, Navbar } from ".";
 
 const Layout = ({ children }) => (
   <Container>
-    <Row>
+    <Row className="sticky-top">
       <Col xs={12}>
         <Navbar />
       </Col>
