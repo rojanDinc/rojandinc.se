@@ -16,6 +16,8 @@ import ArlandaExpressLogo from "../images/arlanda_express.png";
 import { Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
 
+const lengthSorter = (a, b) => a.length - b.length;
+
 const programmingLanguages = [
   "C#",
   "F#",
@@ -26,6 +28,7 @@ const programmingLanguages = [
   "Python",
   "Bash",
 ];
+
 const technologies = [
   "React",
   "React Native",
@@ -43,26 +46,40 @@ const technologies = [
   "Kubernetes",
   "RabbitMQ",
   "Git",
+  "GatsbyJS",
+  "TravisCI",
+  "CircleCI",
 ];
+
+const methodologies = [
+  "Domain driven design",
+  "Test driven design",
+  "MVVM",
+  "Railway oriented programming",
+  "Functional programming",
+  "Object oriented programming",
+];
+
 export default function IndexPage() {
   return (
     <Layout>
       <Row>
         <Col>
-          <Card className="p-4">
+          <Card className="p-4 mb-5">
             <h1 className="font-bold text-3xl">
               Hi I'm Rojan Dinc, a software engineer
             </h1>
             <p>
               This is my personal website where you can find information about
-              my prior professional experience.
+              my prior professional experience, kind of like a CV.
             </p>
             <p>
               I also write about tech stuff I find interesting, visit my{" "}
-              <Link to="/blog">blog page</Link> for more info.
+              <Link to="/blog">blog page.</Link>
             </p>
           </Card>
         </Col>
+    {/*
         <Col className="d-none d-sm-none d-md-block">
           <StaticImage
             className="rounded-xl"
@@ -72,10 +89,11 @@ export default function IndexPage() {
             style={{ borderRadius: "0.75rem" }}
           />
         </Col>
+      */}
       </Row>
 
       <Row>
-        <Col xs={12} sm={6}>
+        <Col xs={12} lg={6}>
           <Title size="4xl">Experience</Title>
           <ExperienceCard
             title="System Developer"
@@ -88,10 +106,15 @@ export default function IndexPage() {
             Lorem ipsum dolor sit.
           </ExperienceCard>
         </Col>
-        <Col xs={12} sm={6} className="mb-5">
+        <Col xs={12} lg={6} className="mb-5">
           <Title size="4xl">Tech skills</Title>
-          <Card className="p-4">
-            <Tag text="C#" />
+          <Card className="p-4 d-inline-block">
+            {programmingLanguages
+              .concat(technologies)
+              .sort(lengthSorter)
+              .map((lang) => (
+                <Tag text={lang} />
+              ))}
           </Card>
         </Col>
       </Row>
@@ -103,8 +126,7 @@ export default function IndexPage() {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column"
             breakpointCols={{
-              default: 3,
-              1100: 2,
+              default: 2,
               700: 1,
             }}
           >
