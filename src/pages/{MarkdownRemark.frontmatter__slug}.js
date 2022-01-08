@@ -63,8 +63,8 @@ const IconContainer = styled.a`
   margin: 0.25rem 0.5rem;
 `;
 
-const AnchorIcon = ({ icon, href = "#" }) => (
-  <IconContainer href={href}>
+const AnchorIcon = ({ icon, target = "_self", href = "#" }) => (
+  <IconContainer href={href} target={target}>
     <FontAwesomeIcon icon={icon} />
   </IconContainer>
 );
@@ -122,9 +122,21 @@ export default function Template({ data }) {
           </Col>
           <Col xs={6}>
             <div className="d-flex justify-content-end">
-              <AnchorIcon icon={faLinkedinIn} /> |{" "}
-              <AnchorIcon icon={faFacebookF} /> |{" "}
-              <AnchorIcon icon={faTwitter} />
+              <AnchorIcon
+                icon={faLinkedinIn}
+                target="_blank"
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+              /> |{" "}
+              <AnchorIcon
+                icon={faFacebookF}
+                target="_blank"
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+              /> |{" "}
+              <AnchorIcon
+                icon={faTwitter}
+                target="_blank"
+                href={`http://twitter.com/share?url=${encodeURIComponent(window.location.href)}`}
+              />
             </div>
           </Col>
         </Row>
