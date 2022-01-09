@@ -92,8 +92,8 @@ export default function IndexPage() {
       */}
       </Row>
 
-      <Row>
-        <Col xs={12} lg={6}>
+      <Row className="mb-5">
+        <Col xs={12}>
           <Title size="4xl">Experience</Title>
           <ExperienceCard
             title="System Developer"
@@ -103,10 +103,33 @@ export default function IndexPage() {
             startDate={new Date("2021-03-15")}
             isCurrentEmployment
           >
-            Lorem ipsum dolor sit.
+          Building and scaling our different services in the Lendo SE market implementing new features for the Lendo SE market. Our solution is designed in a microservices architecture to handle the throughput of incoming loan applications and also for easier maintainability for the different services that makes up the system. Also worked with monitoring, assisting administrative teams and debugging infrastructure.
+          </ExperienceCard>
+          <ExperienceCard
+            title="Consultant"
+            imageAlt={"valtech logo"}
+            image={ValtechLogo}
+            employer="Valtech"
+            startDate={new Date("2018-09-01")}
+            endDate={new Date("2021-03-01")}
+          >
+          I worked with different projects as consultant. I’ve been taking different roles in multiple projects such as tech lead, coach/teacher for entry level developers and as a fullstack developer.
+          </ExperienceCard>
+          <ExperienceCard
+            title="Co-founder & Software Developer"
+            imageAlt={"snaptive logo"}
+            image={SnaptiveLogo}
+            employer="Wellia AB"
+            startDate={new Date("2017-06-01")}
+            endDate={new Date("2021-06-01")}
+          >
+          Worked as a developer and implemented our core mobile app and admin web application. Also worked with implementation of our SaaS and customize solutions after customer needs.
           </ExperienceCard>
         </Col>
-        <Col xs={12} lg={6} className="mb-5">
+      </Row>
+
+      <Row>
+        <Col xs={12} className="mb-5">
           <Title size="4xl">Tech skills</Title>
           <Card className="p-4 d-inline-block">
             {programmingLanguages
