@@ -114,9 +114,8 @@ export default function Template({ data }) {
           </Col>
           <Col xs={6}>
             <div className="d-flex">
-              <AnchorIcon icon={faCalendarAlt} />{" "}
               <div className="mt-1">
-                {new Date(frontmatter.date).toLocaleDateString()}
+                Published {new Date(frontmatter.date).toLocaleDateString()}
               </div>
             </div>
           </Col>
