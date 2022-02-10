@@ -12,16 +12,6 @@ export function shuffleArray(array) {
   return array;
 }
 
-export function prettyDateRange(fromDate, toDate) {
-  const fromDateParts = fromDate.toDateString().split(" ");
-  const toDateParts = toDate.toDateString().split(" ");
-
-  return {
-    fromDate: `${fromDateParts[1]} ${fromDateParts[3]}`,
-    toDate: `${toDateParts[1]} ${toDateParts[3]}`,
-  };
-}
-
 export function getClassNameProp(props) {
   return props.className ? " " + props.className : "";
 }
@@ -33,4 +23,14 @@ export function groupBy(collection, keyGrabber) {
     else acc[key] = Array.of(current);
     return acc;
   }, {});
+}
+
+export function formatDateRange(fromDate, untilDate, current = false) {
+  const from = new Date(fromDate).toDateString().split(' ');
+  const until = new Date(untilDate).toDateString().split(' ');
+
+  const prettyFrom = `${from[1]} ${from[3]}`;
+  const prettyUntil = current ? `current` : `${until[1]} ${until[3]}`;
+
+  return `${prettyFrom} - ${prettyUntil}`;
 }

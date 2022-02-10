@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 import {
@@ -60,7 +60,24 @@ const methodologies = [
   "Object oriented programming",
 ];
 
-export default function IndexPage() {
+export default function IndexPage({ data }) {
+  const projects = data.allMarkdownRemark.edges;
+
+  const renderProjectCard = (projectData) => (
+    <ProjectCard
+      key={projectData.node.key}
+      title={projectData.node.frontmatter.title}
+      link={projectData.node.frontmatter.slug}
+      workRole={projectData.node.frontmatter.workRole}
+      fromDate={projectData.node.frontmatter.from}
+      toDate={projectData.node.frontmatter.until}
+      image={projectData.node.frontmatter.logo}
+      imageAlt={projectData.node.frontmatter.logoAlt}
+    >
+      {projectData.node.excerpt}
+    </ProjectCard>
+  )
+
   return (
     <Layout>
       <Row>
@@ -153,67 +170,40 @@ export default function IndexPage() {
               700: 1,
             }}
           >
-            <ProjectCard
-              title="Arlanda Express"
-              workRole="Tech Lead for app team"
-              fromDate={"Oct 2019"}
-              toDate={"Mars 2021"}
-              profileImage={ArlandaExpressLogo}
-              imageAlt="lendo logo"
-            >
-              Building and scaling our different services in the Lendo SE market
-              implementing new features for the Lendo SE market. Our solution is
-              designed in a microservices architecture to handle the throughput
-              of incoming loan ap- plications and also for easier
-              maintainability for the different services that makes up the
-              system. Also worked with monitoring, assisting administrat- ive
-              teams and debugging infrastructure.
-            </ProjectCard>
-            <ProjectCard
-              title="Arlanda Express"
-              workRole="Backend developer"
-              fromDate={"Oct 2019"}
-              toDate={"Mars 2021"}
-              profileImage={ArlandaExpressLogo}
-              imageAlt="valtech logo"
-            >
-              I worked with different projects as consultant. I’ve been taking
-              different roles in multiple projects such as tech lead,
-              coach/teacher for entry level developers and as a fullstack
-              developer.
-            </ProjectCard>
-            <ProjectCard
-              title="Musikhjälpen"
-              workRole="Cloud platform migration"
-              fromDate={"Sept 2019"}
-              toDate={"Oct 2019"}
-              profileImage={LendoLogo}
-              imageAlt="lendo logo"
-            >
-              Building and scaling our different services in the Lendo SE market
-              implementing new features for the Lendo SE market. Our solution is
-              designed in a microservices architecture to handle the throughput
-              of incoming loan ap- plications and also for easier
-              maintainability for the different services that makes up the
-              system. Also worked with monitoring, assisting administrat- ive
-              teams and debugging infrastructure.
-            </ProjectCard>
-            <ProjectCard
-              title="Colive"
-              workRole="Community platform"
-              fromDate={"Sept 2018"}
-              toDate={"Sept 2019"}
-              profileImage={ValtechLogo}
-              imageAlt="valtech logo"
-            >
-              I worked with different projects as consultant. I’ve been taking
-              different roles in multiple projects such as tech lead,
-              coach/teacher for entry level developers and as a fullstack
-              developer.
-            </ProjectCard>
+            {projects.map(renderProjectCard)}
           </Masonry>
         </Col>
       </Row>
     </Layout>
   );
 }
+
+export const query = graphql`
+  {
+    allMarkdownRemark(
+      filter: {frontmatter: {key: {eq: "project"}}}
+      sort: {fields: frontmatter___from, order: DESC}
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            slug
+            title
+            from(formatString: "YYYY-MM-DD")
+            until(formatString: "YYYY-MM-DD")
+            logo {
+              childImageSharp {
+                gatsbyImageData(width: 200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              }
+            }
+            logoAlt
+            workRole
+            current
+          }
+          excerpt(format: PLAIN, pruneLength: 200)
+        }
+      }
+    }
+  }
+`;

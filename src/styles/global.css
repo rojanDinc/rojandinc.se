@@ -169,3 +169,32 @@ pre {
     max-width: 960px !important;
   }
 }
+
+.project-link:hover {
+  color: white;
+}
+
+.project-title {
+  font-size: 2.0rem;
+}
+
+@media (max-width: 768px) {
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  .project-image {
+    width: 100px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-title {
+    font-size: 1.2rem;
+  }
+}
+
+.gatsby-image-wrapper {
+   position: relative;
+   z-index: 0; 
+}
