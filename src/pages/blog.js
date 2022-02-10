@@ -1,9 +1,9 @@
-import * as React from "react";
-import { graphql, Link } from "gatsby";
-import { Row, Col } from "react-bootstrap";
-import { Card, Layout, Divider } from "../components";
-import { groupBy } from "../util";
-import styled from "styled-components";
+import * as React from 'react';
+import { graphql, Link } from 'gatsby';
+import { Row, Col } from 'react-bootstrap';
+import { Card, Layout, Divider } from '../components';
+import { groupBy } from '../util';
+import styled from 'styled-components';
 
 class PostModel {
   constructor(slug, title, postDate) {
@@ -48,10 +48,10 @@ const PostSection = ({ section }) => {
   );
 };
 
+const RENDER_POSTS = false;
+
 export default function Blog({ data }) {
-  const posts = data.allMarkdownRemark.edges.map((edge) =>
-    PostModel.createPost(edge.node.frontmatter)
-  );
+  const posts = data.allMarkdownRemark.edges.map((edge) => PostModel.createPost(edge.node.frontmatter));
   const groupedPosts = groupBy(posts, (post) => post.postDate.getFullYear());
   const sortSections = (a, b) => b[0] - a[0];
 
@@ -63,18 +63,18 @@ export default function Blog({ data }) {
           <Divider />
         </Col>
       </Row>
-      {Object.entries(groupedPosts)
-        .sort(sortSections)
-        .map((section) => (
-          <PostSection section={section} />
-        ))}
+      {RENDER_POSTS &&
+        Object.entries(groupedPosts)
+          .sort(sortSections)
+          .map((section) => <PostSection section={section} />)}
+      {!RENDER_POSTS && <p>No posts published yet.</p>}
     </Layout>
   );
 }
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { frontmatter: { key: { eq: "blog" } } }) {
       edges {
         node {
           frontmatter {

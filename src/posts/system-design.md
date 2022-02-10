@@ -1,7 +1,8 @@
 ---
 slug: "/blog/system-design"
+key: blog
 date: "2021-12-08"
-title: "My first blog post"
+title: "My second blog post"
 ---
 # This is a title
 Lorem ipsum dolor sit.
