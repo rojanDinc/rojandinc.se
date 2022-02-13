@@ -18,6 +18,17 @@ const CustomNavbar = styled(Navbar)`
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 `;
 
+const pageLinks = [
+  {
+    title: 'Blog',
+    href: '/blog'
+  },
+  {
+    title: 'Contact',
+    href: '/contact',
+  }
+];
+
 const _Navbar = () => (
   <CustomNavbar
     collapseOnSelect
@@ -32,11 +43,13 @@ const _Navbar = () => (
       </NavbarBrand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link as={Link} to="/blog">
-            Blog
-          </Nav.Link>
-        </Nav>
+        {pageLinks.map(pl => (
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to={pl.href}>
+              {pl.title}
+            </Nav.Link>
+          </Nav>
+        ))}
       </Navbar.Collapse>
     </Container>
   </CustomNavbar>
