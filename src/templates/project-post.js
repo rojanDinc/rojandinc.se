@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { graphql } from "gatsby";
 import { Row, Col } from "react-bootstrap";
-import { Divider, Layout } from "../components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Layout } from "../components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import { formatDateRange } from "../util";
@@ -47,7 +46,7 @@ const ProjectPost = ({ data }) => {
           </Col>
           <Col className="">
             <h1 className="project-title">{frontmatter.workRole}</h1>
-            <div>{frontmatter.title}</div>
+            <div><b>{frontmatter.title}</b></div>
             <div>{formatDateRange(frontmatter.from, frontmatter.until, frontmatter.current)}</div>
           </Col>
         </Row>
