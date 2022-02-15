@@ -18,14 +18,14 @@ export default function Contact() {
         <Col>
           <Card className="p-3">
             <Col xs={12}>
-              <FontAwesomeIcon icon={faGithub} /> <a href="https://github.com/rojanDinc">Github</a>
+              <FontAwesomeIcon icon={faGithub} /> <a target="_blank" href="https://github.com/rojanDinc">Github</a>
             </Col>
             <Col xs={12}>
               <FontAwesomeIcon icon={faLinkedinIn} />{' '}
-              <a href="https://www.linkedin.com/in/rojan-dinc-719827141/">LinkedIn</a>
+              <a target="_blank" href="https://www.linkedin.com/in/rojan-dinc-719827141/">LinkedIn</a>
             </Col>
             <Col xs={12}>
-              <FontAwesomeIcon icon={faAt} /> <a href="mailto:rojand94@gmail.com">rojand94@gmail.com</a>
+              <FontAwesomeIcon icon={faAt} /> <a target="_blank" href="mailto:rojand94@gmail.com">rojand94@gmail.com</a>
             </Col>
           </Card>
         </Col>
