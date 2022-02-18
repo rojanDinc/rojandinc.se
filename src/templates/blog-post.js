@@ -99,6 +99,8 @@ const BlogPost = (props) => {
     });
   };
 
+  const windowLocationHref = typeof window !== "undefined" ? window.location.href : null;
+
   React.useEffect(() => {
     hljs.highlightAll();
     initCopyElements();
@@ -131,17 +133,17 @@ const BlogPost = (props) => {
               <AnchorIcon
                 icon={faLinkedinIn}
                 target="_blank"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(windowLocationHref)}`}
               /> |{" "}
               <AnchorIcon
                 icon={faFacebookF}
                 target="_blank"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(windowLocationHref)}`}
               /> |{" "}
               <AnchorIcon
                 icon={faTwitter}
                 target="_blank"
-                href={`http://twitter.com/share?url=${encodeURIComponent(window.location.href)}`}
+                href={`http://twitter.com/share?url=${encodeURIComponent(windowLocationHref)}`}
               />
             </div>
           </Col>
