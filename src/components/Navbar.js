@@ -20,6 +20,10 @@ const CustomNavbar = styled(Navbar)`
 
 const pageLinks = [
   {
+    title: 'Home',
+    href: '/',
+  },
+  {
     title: 'Blog',
     href: '/blog'
   },
