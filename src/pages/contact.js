@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Layout, Card } from '../components';
+import { Layout, Card, Title } from '../components';
 import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,7 @@ export default function Contact() {
     <Layout>
       <Row>
         <Col>
-          <h1>Contact</h1>
+          <Title size="4xl">Contact</Title>
         </Col>
       </Row>
       <Row>
