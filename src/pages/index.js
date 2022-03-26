@@ -49,6 +49,7 @@ const technologies = [
   "GatsbyJS",
   "TravisCI",
   "CircleCI",
+  "Terraform",
 ];
 
 const methodologies = [
@@ -86,12 +87,9 @@ export default function IndexPage({ data }) {
             <h1 className="font-bold text-3xl">
               Hi I'm Rojan Dinc, a software engineer
             </h1>
+            <p>My interests are system design, software design, functional programming, distributed systems, hardware programming, infrastructure and producing music.</p>
             <p>
-              This is my personal website where you can find information about
-              my prior professional experience, kind of like a CV.
-            </p>
-            <p>
-              I also write about tech stuff I find interesting, visit my{" "}
+              I also write about tech stuff, visit my{" "}
               <Link to="/blog">blog page.</Link>
             </p>
           </Card>
@@ -120,7 +118,11 @@ export default function IndexPage({ data }) {
             startDate={new Date("2021-03-15")}
             isCurrentEmployment
           >
-          Building and scaling our different services in the Lendo SE market implementing new features for the Lendo SE market. Our solution is designed in a microservices architecture to handle the throughput of incoming loan applications and also for easier maintainability for the different services that makes up the system. Also worked with monitoring, assisting administrative teams and debugging infrastructure.
+            <ul>
+              <li>Saved billing costs by 20%, increased reliability, security, maintainability, automation and scalability by migrating old infrastructure to Google Cloud Platform.</li>
+              <li>Increased total reviews submitted to Google reviews and Trustpilot with 40% and 70%, also increased average review rating by 4.52% by designing and implementing a centralized service for customer reviews engagement.</li>
+              <li>Implemented features in backoffice web application to reduce time of manual labor for users and support staff.</li>
+            </ul>
           </ExperienceCard>
           <ExperienceCard
             title="Consultant"
@@ -130,7 +132,13 @@ export default function IndexPage({ data }) {
             startDate={new Date("2018-09-01")}
             endDate={new Date("2021-03-01")}
           >
-          I worked with different projects as consultant. I’ve been taking different roles in multiple projects such as tech lead, coach/teacher for entry level developers and as a fullstack developer.
+            <ul>
+              <li>Leading team of three engineers on development of a ticketing iOS application used as a work tool by train conductors to improve every day manual tasks.</li>
+              <li>Modernized a customers overall architecture using technologies such as kubernetes, F#, Azure, Docker transforming old solution to a more modern microservice based solution.</li>
+              <li>Increased a chairity web app's reliability to handle peak time traffic (100-500 requests/s) by moving the app to a modern cloud provider to scale easier.</li>
+              <li>Trained a team of four trainee engineers on software architecture, clean code and nodejs/typescript by having weekly assistance and workshops.</li>
+              <li>Helped a startup company with building their SaaS platform from scratch and their campaign app which led to an intitial 289 users registered the first month after the campaign release.</li>
+            </ul>
           </ExperienceCard>
           <ExperienceCard
             title="Co-founder & Software Developer"
@@ -140,7 +148,10 @@ export default function IndexPage({ data }) {
             startDate={new Date("2017-06-01")}
             endDate={new Date("2021-06-01")}
           >
-          Worked as a developer and implemented our core mobile app and admin web application. Also worked with implementation of our SaaS and customize solutions after customer needs.
+            <ul>
+              <li>Grew the initial registered members of the Snaptive app by 500 members by quickly designing and implementing a proof of concept and later on a beta version using Ionic, Firebase and TypeScript.</li>
+              <li>Reduced initial infrastructure costs to only ~8$/month by using Firebase as a backend.</li>
+            </ul>
           </ExperienceCard>
         </Col>
       </Row>
@@ -162,16 +173,13 @@ export default function IndexPage({ data }) {
       <Title size="4xl">Projects</Title>
       <Row>
         <Col>
-          <Masonry
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-            breakpointCols={{
-              default: 2,
-              700: 1,
-            }}
-          >
-            {projects.map(renderProjectCard)}
-          </Masonry>
+          <Card className="p-4">
+            <div className="d-inline-flex mb-3"><a class="d-flex font-bold text-lg" href="https://github.com/rojanDinc/rop-monads" target="_blank"><b><u>rop-monads</u></b></a><br/></div>
+            <ul>
+              <li>Developed an open sourced library for javascript/typescript.</li>
+              <li>The library provides common monad types <i>Result</i> and <i>Optional</i> used in functional programming.</li>
+            </ul>
+          </Card>
         </Col>
       </Row>
     </Layout>
