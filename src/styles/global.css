@@ -198,3 +198,7 @@ pre {
    position: relative;
    z-index: 0; 
 }
+
+.w-25 {
+  max-width: 25px;
+}
