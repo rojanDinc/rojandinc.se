@@ -49,7 +49,7 @@ const technologies = [
   "GatsbyJS",
   "TravisCI",
   "CircleCI",
-  "Terraform",
+  "Terraform"
 ];
 
 const methodologies = [
@@ -59,6 +59,7 @@ const methodologies = [
   "Railway oriented programming",
   "Functional programming",
   "Object oriented programming",
+  "Microservices"
 ];
 
 export default function IndexPage({ data }) {
@@ -122,6 +123,8 @@ export default function IndexPage({ data }) {
               <li>Saved billing costs by 20%, increased reliability, security, maintainability, automation and scalability by migrating old infrastructure to Google Cloud Platform.</li>
               <li>Increased total reviews submitted to Google reviews and Trustpilot with 40% and 70%, also increased average review rating by 4.52% by designing and implementing a centralized service for customer reviews engagement.</li>
               <li>Implemented features in backoffice web application to reduce time of manual labor for users and support staff.</li>
+              <li>Picked out of 6 engineers company wide to be a part of the GCP ambassador program to take more infrastructure responsibility and share knowledge to engineering teams.</li>
+              <li>Joined the SRE team after the GCP ambassador program.</li>
             </ul>
           </ExperienceCard>
           <ExperienceCard
@@ -133,7 +136,7 @@ export default function IndexPage({ data }) {
             endDate={new Date("2021-03-01")}
           >
             <ul>
-              <li>Leading team of three engineers on development of a ticketing iOS application used as a work tool by train conductors to improve every day manual tasks.</li>
+              <li>Worked with a team of three engineers on development of a ticketing iOS application used as a work tool by train conductors to improve every day manual tasks.</li>
               <li>Modernized a customers overall architecture using technologies such as kubernetes, F#, Azure, Docker transforming old solution to a more modern microservice based solution.</li>
               <li>Increased a chairity web app's reliability to handle peak time traffic (100-500 requests/s) by moving the app to a modern cloud provider to scale easier.</li>
               <li>Trained a team of four trainee engineers on software architecture, clean code and nodejs/typescript by having weekly assistance and workshops.</li>
@@ -176,8 +179,7 @@ export default function IndexPage({ data }) {
           <Card className="p-4">
             <div className="d-inline-flex mb-3"><a class="d-flex font-bold text-lg" href="https://github.com/rojanDinc/rop-monads" target="_blank"><b><u>rop-monads</u></b></a><br/></div>
             <ul>
-              <li>Developed an open sourced library for javascript/typescript.</li>
-              <li>The library provides common monad types <i>Result</i> and <i>Optional</i> used in functional programming.</li>
+              <li>Authored an open source library in javascript/typescript that provides common monad types Result and Optional used in functional programming.</li>
             </ul>
           </Card>
         </Col>
