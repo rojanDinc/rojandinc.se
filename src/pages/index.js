@@ -9,6 +9,7 @@ import {
   Title,
   Layout,
 } from "../components";
+import MongoDBLogo from "../images/mongodb_logo.png";
 import LendoLogo from "../images/lendo.png";
 import ValtechLogo from "../images/valtech.png";
 import SnaptiveLogo from "../images/snaptive.png";
@@ -112,12 +113,24 @@ export default function IndexPage({ data }) {
         <Col xs={12}>
           <Title size="4xl">Experience</Title>
           <ExperienceCard
+            title="Platform engineer"
+            imageAlt={"mongodb logo"}
+            image={MongoDBLogo}
+            employer="MongoDB"
+            startDate={new Date("2022-08-15")}
+            isCurrentEmployment
+          >
+            <ul>
+            </ul>
+          </ExperienceCard>
+          <Title size="4xl">Experience</Title>
+          <ExperienceCard
             title="System Developer"
             imageAlt={"lendo logo"}
             image={LendoLogo}
             employer="Lendo"
             startDate={new Date("2021-03-15")}
-            isCurrentEmployment
+            endDate={new Date("2022-08-15")}
           >
             <ul>
               <li>Saved billing costs by 20%, increased reliability, security, maintainability, automation and scalability by migrating old infrastructure to Google Cloud Platform.</li>
