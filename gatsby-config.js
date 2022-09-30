@@ -68,7 +68,6 @@ module.exports = {
           respectDNT: true,
           // Avoids sending pageview hits from custom paths
           // Defaults to https://www.googletagmanager.com
-          origin: "https://rojandinc.se",
         },
       },
     },
