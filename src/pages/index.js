@@ -123,7 +123,6 @@ export default function IndexPage({ data }) {
             <ul>
             </ul>
           </ExperienceCard>
-          <Title size="4xl">Experience</Title>
           <ExperienceCard
             title="System Developer"
             imageAlt={"lendo logo"}
