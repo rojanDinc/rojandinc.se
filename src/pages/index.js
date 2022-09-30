@@ -113,7 +113,7 @@ export default function IndexPage({ data }) {
           <Title size="4xl">Experience</Title>
           <ExperienceCard
             title="System Developer"
-            imageAlt={"colive logo"}
+            imageAlt={"lendo logo"}
             image={LendoLogo}
             employer="Lendo"
             startDate={new Date("2021-03-15")}
