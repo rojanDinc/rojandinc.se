@@ -24,6 +24,7 @@
     "babel-plugin-styled-components": "^1.13.3",
     "bootstrap": "5.1.3",
     "gatsby": "^3.11.1",
+    "gatsby-plugin-google-gtag": "^4.24.0",
     "gatsby-plugin-image": "^1.11.0",
     "gatsby-plugin-react-helmet": "^4.11.0",
     "gatsby-plugin-sharp": "^3.11.0",
