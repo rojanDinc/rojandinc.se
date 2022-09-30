@@ -17,12 +17,13 @@ const StyledSpan = styled.span`
 const formatMonths = monthsCount => {
   const months = monthsCount % 12;
   const years = Math.floor(monthsCount / 12); 
-  if (years > 0) {
-    if (months > 0) return `${years} years ${months} months`;
-    return `${years} years`;
-  } else {
-    return `${months} months`;
+  const formatText = (number, singularLabel, pluralLabel) => {
+    if (number === 0) return '';
+    if (number === 1) return `${number} ${singularLabel}`;
+    return `${number} ${pluralLabel}`;
   }
+
+  return `${formatText(years, 'year', 'years')} ${formatText(months, 'month', 'months')}`.trim();
 };
 
 const renderExperienceDuration = (startDate, endDate, isStillOngoing) => {
