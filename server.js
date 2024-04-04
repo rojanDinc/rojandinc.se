@@ -7,6 +7,9 @@ const app = express();
 
 gatsby.prepare({ app }, () => {
   // Here you can define your routes
+  app.get("/healthz", (req, res) => {
+    res.status(200).send("ok");
+  })
 });
 
 signals.forEach((signal) => {
