@@ -1,0 +1,30 @@
+image:
+  repository: registry-docker-registry:5000/rojandincse
+  tag: latest
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "rojandinc.se,www.rojandinc.se"
+    external-dns.alpha.kubernetes.io/target: tunnel.rojandinc.se
+  hosts:
+    - host: rojandinc.se
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+    - host: www.rojandinc.se
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+service:
+  port: 8080
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+autoscaling:
+  enabled: true
