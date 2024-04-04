@@ -1,0 +1,45 @@
+steps:
+  - name: build-dry-run
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      dry-run: true
+      repo: registry-docker-registry:5000/rojandincse
+      tags: ${CI_COMMIT_SHA}
+      dockerfile: Dockerfile
+    when:
+      - event: [pull_request]
+        branch:
+          exclude: [main]
+
+  - name: publish
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: registry-docker-registry:5000/rojandincse
+      tags: ${CI_COMMIT_SHA}
+      dockerfile: Dockerfile
+      buildkit_config: |
+        [registry."registry-docker-registry:5000"]
+          http = true
+          insecure = true
+    when:
+      - event: [push]
+        branch: [main]
+
+  - name: deploy
+    image: pelotech/drone-helm3
+    settings:
+      mode: upgrade
+      namespace: apps
+      chart: ./chart
+      release: web
+      skip_tls_verify: true
+      values: "image.tag=${CI_COMMIT_SHA}"
+      api_server:
+        from_secret: api_server
+      kubernetes_token:
+        from_secret: kubernetes_token
+    depends_on: [publish]
+    when:
+      - event: [push]
+        branch: [main]
+
