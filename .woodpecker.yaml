@@ -34,6 +34,8 @@ steps:
       release: web
       skip_tls_verify: true
       values: "image.tag=${CI_COMMIT_SHA}"
+      values_files:
+        - "environment/values.yaml"
       api_server:
         from_secret: api_server
       kubernetes_token:
