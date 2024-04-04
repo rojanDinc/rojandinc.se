@@ -9,7 +9,7 @@ steps:
     when:
       - event: [pull_request]
         branch:
-          exclude: [main]
+          exclude: [master]
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
@@ -23,7 +23,7 @@ steps:
           insecure = true
     when:
       - event: [push]
-        branch: [main]
+        branch: [master]
 
   - name: deploy
     image: pelotech/drone-helm3
@@ -41,5 +41,5 @@ steps:
     depends_on: [publish]
     when:
       - event: [push]
-        branch: [main]
+        branch: [master]
 
