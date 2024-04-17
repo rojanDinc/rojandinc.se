@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY yarn.lock ./
 
-RUN yarn
+RUN yarn --network-timeout 100000
 
 COPY . .
 
