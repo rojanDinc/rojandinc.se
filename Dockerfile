@@ -1,4 +1,4 @@
-FROM node:16.20.2-bookworm
+FROM node:16.20.2-alpine3.18
 
 WORKDIR /app
 
