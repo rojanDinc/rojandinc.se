@@ -16,7 +16,7 @@ steps:
     backend_options:
       kubernets:
         nodeSelector:
-          kubernetes.io/host: worker-8
+          kubernetes.io/hostname: worker-8
         tolerations:
           - key: dedicated
             operator: Equal
@@ -42,7 +42,7 @@ steps:
     backend_options:
       kubernets:
         nodeSelector:
-          kubernetes.io/host: worker-8
+          kubernetes.io/hostname: worker-8
         tolerations:
           - key: dedicated
             operator: Equal
