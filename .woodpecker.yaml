@@ -24,15 +24,6 @@ steps:
     when:
       - event: [push]
         branch: [master]
-    backend_options:
-      kubernetes:
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 200m
-            memory: 256Mi
 
   - name: deploy
     image: pelotech/drone-helm3
