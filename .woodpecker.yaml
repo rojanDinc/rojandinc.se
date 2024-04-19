@@ -2,6 +2,9 @@ steps:
   - name: build-dry-run
     image: woodpeckerci/plugin-docker-buildx
     settings:
+      cache_images:
+        - node:16.20.2
+        - nginx:1.25.1-alpine
       dry-run: true
       repo: registry-docker-registry:5000/rojandincse
       tags: ${CI_COMMIT_SHA}
@@ -14,6 +17,9 @@ steps:
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
     settings:
+      cache_images:
+        - node:16.20.2
+        - nginx:1.25.1-alpine
       repo: registry-docker-registry:5000/rojandincse
       tags: ${CI_COMMIT_SHA}
       dockerfile: Dockerfile
@@ -24,15 +30,6 @@ steps:
     when:
       - event: [push]
         branch: [master]
-    backend_options:
-      kubernetes:
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 200m
-            memory: 256Mi
 
   - name: deploy
     image: pelotech/drone-helm3
