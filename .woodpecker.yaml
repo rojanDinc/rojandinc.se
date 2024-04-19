@@ -1,6 +1,9 @@
 steps:
   - name: build-dry-run
     image: woodpeckerci/plugin-docker-buildx
+    cache_images:
+      - node:16.20.2
+      - nginx:1.25.1-alpine
     settings:
       dry-run: true
       repo: registry-docker-registry:5000/rojandincse
@@ -13,6 +16,9 @@ steps:
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
+    cache_images:
+      - node:16.20.2
+      - nginx:1.25.1-alpine
     settings:
       repo: registry-docker-registry:5000/rojandincse
       tags: ${CI_COMMIT_SHA}
