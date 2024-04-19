@@ -13,6 +13,15 @@ steps:
       - event: [pull_request]
         branch:
           exclude: [master]
+    backend_options:
+      kubernets:
+        nodeSelector:
+          kubernetes.io/host: worker-8
+        tolerations:
+          - key: dedicated
+            operator: Equal
+            value: ci
+            effect: NoSchedule
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
@@ -30,6 +39,15 @@ steps:
     when:
       - event: [push]
         branch: [master]
+    backend_options:
+      kubernets:
+        nodeSelector:
+          kubernetes.io/host: worker-8
+        tolerations:
+          - key: dedicated
+            operator: Equal
+            value: ci
+            effect: NoSchedule
 
   - name: deploy
     image: pelotech/drone-helm3
