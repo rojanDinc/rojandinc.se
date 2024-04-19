@@ -19,7 +19,7 @@ ingress:
           pathType: ImplementationSpecific
 
 service:
-  port: 8080
+  port: 80
 
 resources:
   requests:
@@ -28,3 +28,18 @@ resources:
 
 autoscaling:
   enabled: true
+
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 80
+  initialDelaySeconds: 3
+  periodSeconds: 3
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 80
+  initialDelaySeconds: 3
+  periodSeconds: 3
