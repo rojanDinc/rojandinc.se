@@ -37,12 +37,6 @@ steps:
           requests:
             memory: 256Mi
             cpu: 1000m
-        nodeSelector:
-          kubernetes.io/hostname: worker-8
-        tolerations:
-          - key: dedicated
-            operator: Exists
-            effect: NoSchedule
 
   - name: deploy
     image: pelotech/drone-helm3
