@@ -41,8 +41,7 @@ steps:
           kubernetes.io/hostname: worker-8
         tolerations:
           - key: dedicated
-            operator: Equal
-            value: ci
+            operator: Exists
             effect: NoSchedule
 
   - name: deploy
