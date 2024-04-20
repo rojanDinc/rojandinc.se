@@ -12,7 +12,6 @@ steps:
     when:
       - event: [pull_request]
         branch:
-          exclude: [master]
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
@@ -25,7 +24,7 @@ steps:
       dockerfile: Dockerfile
       buildkit_config: |
         [registry."registry-docker-registry:5000"]
-          http = true
+        #http = true
           insecure = true
     when:
       - event: [push]
