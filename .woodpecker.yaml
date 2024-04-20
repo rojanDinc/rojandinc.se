@@ -14,7 +14,7 @@ steps:
         branch:
           exclude: [master]
     backend_options:
-      kubernets:
+      kubernetes:
         nodeSelector:
           kubernetes.io/hostname: worker-8
         tolerations:
@@ -40,7 +40,7 @@ steps:
       - event: [push]
         branch: [master]
     backend_options:
-      kubernets:
+      kubernetes:
         nodeSelector:
           kubernetes.io/hostname: worker-8
         tolerations:
