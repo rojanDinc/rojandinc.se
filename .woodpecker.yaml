@@ -6,11 +6,13 @@ steps:
         - node:16.20.2
         - nginx:1.25.1-alpine
       dry-run: true
-      repo: registry-docker-registry/rojandincse
+      repo: registry-docker-registry:5000/rojandincse
       tags: ${CI_COMMIT_SHA}
       dockerfile: Dockerfile
     when:
       - event: [pull_request]
+        branch:
+          exclude: master
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx:3.1.0
@@ -18,11 +20,11 @@ steps:
       cache_images:
         - node:16.20.2
         - nginx:1.25.1-alpine
-      repo: registry-docker-registry/rojandincse
+      repo: registry-docker-registry:5000/rojandincse
       tags: ${CI_COMMIT_SHA}
       dockerfile: Dockerfile
       buildkit_config: |
-        [registry."registry-docker-registry"]
+        [registry."registry-docker-registry:5000"]
           http = true
           insecure = true
     when:
