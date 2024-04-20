@@ -1,40 +1,33 @@
 steps:
   - name: build-dry-run
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-docker-buildx:3.1.0
     settings:
       cache_images:
         - node:16.20.2
         - nginx:1.25.1-alpine
       dry-run: true
-      repo: registry-docker-registry:5000/rojandincse
+      repo: registry-docker-registry/rojandincse
       tags: ${CI_COMMIT_SHA}
       dockerfile: Dockerfile
     when:
       - event: [pull_request]
 
   - name: publish
-    image: woodpeckerci/plugin-kaniko
+    image: woodpeckerci/plugin-docker-buildx:3.1.0
     settings:
-      registry: registry-docker-registry
-      repo: rojandincse
+      cache_images:
+        - node:16.20.2
+        - nginx:1.25.1-alpine
+      repo: registry-docker-registry/rojandincse
       tags: ${CI_COMMIT_SHA}
-      log-level: debug
-      skip_tls_verify: true
-    #    image: woodpeckerci/plugin-docker-buildx
-    #    settings:
-    #      cache_images:
-    #        - node:16.20.2
-    #        - nginx:1.25.1-alpine
-    #      repo: registry-docker-registry:5000/rojandincse
-    #      tags: ${CI_COMMIT_SHA}
-    #      dockerfile: Dockerfile
-    #      buildkit_config: |
-    #        [registry."registry-docker-registry:5000"]
-    #          http = true
-    #          insecure = true
-    #    when:
-    #      - event: [push]
-    #        branch: [master]
+      dockerfile: Dockerfile
+      buildkit_config: |
+        [registry."registry-docker-registry"]
+          http = true
+          insecure = true
+    when:
+      - event: [push]
+        branch: [master]
 
   - name: deploy
     image: pelotech/drone-helm3
