@@ -15,7 +15,7 @@ steps:
   - name: publish
     image: woodpeckerci/plugin-kaniko
     settings:
-      repo: registry-docker-registry:5000/rojandincse
+      repo: registry-docker-registry/rojandincse
       tags: ${CI_COMMIT_SHA}
       log-level: debug
     #    image: woodpeckerci/plugin-docker-buildx
