@@ -13,15 +13,6 @@ steps:
       - event: [pull_request]
         branch:
           exclude: [master]
-    backend_options:
-      kubernetes:
-        nodeSelector:
-          kubernetes.io/hostname: worker-8
-        tolerations:
-          - key: dedicated
-            operator: Equal
-            value: ci
-            effect: NoSchedule
 
   - name: publish
     image: woodpeckerci/plugin-docker-buildx
@@ -41,6 +32,11 @@ steps:
         branch: [master]
     backend_options:
       kubernetes:
+        serviceAccountName: 'deployer'
+        resources:
+          requests:
+            memory: 256Mi
+            cpu: 1000m
         nodeSelector:
           kubernetes.io/hostname: worker-8
         tolerations:
