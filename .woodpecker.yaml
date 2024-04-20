@@ -1,6 +1,6 @@
 steps:
   - name: build-dry-run
-    image: woodpeckerci/plugin-docker-buildx:3.1.0
+    image: woodpeckerci/plugin-docker-buildx
     settings:
       cache_images:
         - node:16.20.2
@@ -15,7 +15,7 @@ steps:
           exclude: master
 
   - name: publish
-    image: woodpeckerci/plugin-docker-buildx:3.1.0
+    image: woodpeckerci/plugin-docker-buildx
     settings:
       cache_images:
         - node:16.20.2
