@@ -11,31 +11,27 @@ steps:
       dockerfile: Dockerfile
     when:
       - event: [pull_request]
-        branch:
 
   - name: publish
-    image: woodpeckerci/plugin-docker-buildx
-    settings:
-      cache_images:
-        - node:16.20.2
-        - nginx:1.25.1-alpine
-      repo: registry-docker-registry:5000/rojandincse
-      tags: ${CI_COMMIT_SHA}
-      dockerfile: Dockerfile
-      buildkit_config: |
-        [registry."registry-docker-registry:5000"]
-        #http = true
-          insecure = true
-    when:
-      - event: [push]
-        branch: [master]
-    backend_options:
-      kubernetes:
-        serviceAccountName: 'deployer'
-        resources:
-          requests:
-            memory: 256Mi
-            cpu: 1000m
+    image: woodpeckerci/plugin-kaniko
+    repo: registry-docker-registry:5000/rojandincse
+    tags: ${CI_COMMIT_SHA}
+    log-level: debug
+    #    image: woodpeckerci/plugin-docker-buildx
+    #    settings:
+    #      cache_images:
+    #        - node:16.20.2
+    #        - nginx:1.25.1-alpine
+    #      repo: registry-docker-registry:5000/rojandincse
+    #      tags: ${CI_COMMIT_SHA}
+    #      dockerfile: Dockerfile
+    #      buildkit_config: |
+    #        [registry."registry-docker-registry:5000"]
+    #          http = true
+    #          insecure = true
+    #    when:
+    #      - event: [push]
+    #        branch: [master]
 
   - name: deploy
     image: pelotech/drone-helm3
