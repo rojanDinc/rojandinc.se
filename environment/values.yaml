@@ -6,7 +6,7 @@ ingress:
   enabled: true
   className: nginx
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: "rojandinc.se,www.rojandinc.se"
+    external-dns.alpha.kubernetes.io/hostname: "www.rojandinc.se"
     external-dns.alpha.kubernetes.io/target: tunnel.rojandinc.se
     nginx.ingress.kubernetes.io/enable-global-auth: "false"
 
