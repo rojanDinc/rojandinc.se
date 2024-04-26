@@ -5,5 +5,4 @@ metadata:
   labels:
     {{- include "rojandincse.labels" . | nindent 4 }}
 data:
-  nginx.conf: |
-    {{- toYaml .Values.config | nindent 4 }}
+  nginx.conf: {{- toYaml .Values.config | nindent 4 }}
