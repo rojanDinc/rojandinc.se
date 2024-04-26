@@ -2,6 +2,9 @@ image:
   repository: registry-docker-registry:5000/rojandincse
   tag: latest
 
+config: |
+
+
 ingress:
   enabled: true
   className: nginx

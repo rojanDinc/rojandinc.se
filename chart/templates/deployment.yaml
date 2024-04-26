@@ -46,13 +46,19 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
+          {{- if .Values.config }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
+            - name: nginx-config
+              readOnly: true
+              mountPath: /etc/nginx
           {{- end }}
-      {{- with .Values.volumes }}
+      {{- if .Values.config }}
       volumes:
-        {{- toYaml . | nindent 8 }}
+        - name: nginx-config
+          configMap:
+            name: {{ include "rojandincse.fullname" . }}
+            items:
+              - key: nginx.conf
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
