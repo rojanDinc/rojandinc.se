@@ -59,6 +59,7 @@ spec:
             name: {{ include "rojandincse.fullname" . }}
             items:
               - key: nginx.conf
+                path: nginx.conf
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
