@@ -11,10 +11,6 @@ ingress:
     nginx.ingress.kubernetes.io/enable-global-auth: "false"
 
   hosts:
-    - host: rojandinc.se
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
     - host: www.rojandinc.se
       paths:
         - path: /
