@@ -1,5 +1,5 @@
 image:
-  repository: registry-docker-registry:5000/rojandincse
+  repository: registry-local.devops.svc.cluster.local/rojandincse
   tag: latest
 
 config: |
